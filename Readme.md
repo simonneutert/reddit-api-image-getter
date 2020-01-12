@@ -1,4 +1,4 @@
-# Reddit Image Getter
+# Reddit API Image Getter
 
 ## Install
 
@@ -8,7 +8,8 @@
 
 ~~~ javascript
 // example
-redditImageGetter = require('./lib/redditImageGetter')
+redditImageGetter = require('reddit-api-image-getter')
+
 const path = require('path')
 
 loader = new redditImageGetter()
