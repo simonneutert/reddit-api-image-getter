@@ -8,15 +8,25 @@
 
 ~~~ javascript
 // example
-redditImageGetter = require('reddit-api-image-getter')
-
 const path = require('path')
+RedditImageGetter = require('reddit-api-image-getter')
+redditImageGetter = new RedditImageGetter()
 
-loader = new redditImageGetter()
-
-loader.getHotImagesOfSubReddit('ProgrammerHumor').then(function (result) {
+// `getHotImagesOfSubReddit('subreddit')`
+// returns a Promise, that, when successful returns
+// an Array containing RedditImageEntry object instances.
+// 
+// Each RedditImageEntry object is then passed to
+// `saveRedditImageEntryToDisk(imageEntry, path)`
+// to be saved to disk. 
+//
+// See what each RedditImageEntry does in 
+// lib/classes/RedditImageEntry.js and lib/classes/RedditEntry.js
+//
+redditImageGetter.getHotImagesOfSubReddit('ProgrammerHumor').
+then(function (result) {
   for (imageEntry of result) {
-    loader.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images'))
+    redditImageGetter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images'))
   }
 }).catch(function (error) {
   console.log(error)
