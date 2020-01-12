@@ -1,0 +1,29 @@
+{
+  "name": "reddit-api-image-getter",
+  "version": "1.0.0",
+  "description": "Gets images of a Subreddit and can optionally save them.",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonneutert/reddit-api-image-getter.git"
+  },
+  "keywords": [
+    "xhr",
+    "http",
+    "ajax",
+    "promise",
+    "node",
+    "reddit",
+    "images"
+  ],
+  "author": "Simon Neutert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simonneutert/reddit-api-image-getter/issues"
+  },
+  "homepage": "https://github.com/simonneutert/reddit-api-image-getter",
+  "dependencies": {
+    "axios": "^0.19.1"
+  }
+}
