@@ -23,6 +23,9 @@ redditImageGetter = new RedditImageGetter()
 // See what each RedditImageEntry does in 
 // lib/classes/RedditImageEntry.js and lib/classes/RedditEntry.js
 //
+// get the top images of a subreddit: using
+// getTopImagesOfSubReddit(subreddit = 'ProgrammerHumor')
+// 
 redditImageGetter.getHotImagesOfSubReddit('ProgrammerHumor').
 then(function (result) {
   for (imageEntry of result) {
