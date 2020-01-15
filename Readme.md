@@ -4,6 +4,10 @@
 
 `npm i reddit-api-image-getter --save`
 
+## Open Source
+
+Check out the source code on GitHub and dig in a little for yourself.
+
 ## Example
 
 ~~~ javascript
