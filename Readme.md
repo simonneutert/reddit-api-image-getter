@@ -28,7 +28,7 @@ redditImageGetter = new RedditImageGetter()
 // 
 redditImageGetter.getHotImagesOfSubReddit('ProgrammerHumor').
 then(function (result) {
-  for (imageEntry of result) {
+  for (let imageEntry of result) {
     redditImageGetter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images'))
   }
 }).catch(function (error) {
