@@ -40,6 +40,10 @@ then(function (result) {
 })
 ~~~
 
+## Example with Telegram Bot
+
+https://www.simon-neutert.de/2020/telegraf-bot-nodejs/
+
 ## Inspiration
 
 go crazy, send the pictures to your telegram via a bot (using a [bot](https://core.telegram.org/bots/samples#node-js)) and make your day a happy day :tada:
