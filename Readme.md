@@ -14,7 +14,7 @@ Check out the source code on GitHub and dig in a little for yourself.
 // example
 const path = require('path')
 RedditImageGetter = require('reddit-api-image-getter')
-redditImageGetter = new RedditImageGetter()
+redditImageGetter = new RedditApiImageGetter()
 
 // `getHotImagesOfSubReddit('subreddit')`
 // returns a Promise, that, when successful returns
@@ -34,6 +34,44 @@ redditImageGetter.getHotImagesOfSubReddit('ProgrammerHumor').
 then(function (result) {
   for (let imageEntry of result) {
     redditImageGetter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images'))
+  }
+}).catch(function (error) {
+  console.log(error)
+})
+~~~
+
+~~~javascript
+// example
+redditApiImageGetter = require('../reddit-api-image-getter')
+const path = require('path')
+
+getter = new redditApiImageGetter()
+
+// `getHotImagesOfSubReddit('subreddit')`
+// returns a Promise, that, when successful returns
+// an Array containing RedditImageEntry object instances.
+// 
+// Each RedditImageEntry object is then passed to
+// `saveRedditImageEntryToDisk(imageEntry, path)`
+// to be saved to disk. 
+//
+// See what each RedditImageEntry does in 
+// lib/classes/RedditImageEntry.js and lib/classes/RedditEntry.js
+//
+// get the top images of a subreddit: using
+// getTopImagesOfSubReddit(subreddit = 'ProgrammerHumor')
+// 
+getter.getHotImagesOfSubReddit('ProgrammerHumor').then(function (result) {
+  for (imageEntry of result) {
+    getter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images', 'hot'))
+  }
+}).catch(function (error) {
+  console.log(error)
+})
+
+getter.getTopImagesOfSubReddit('ProgrammerHumor').then(function (result) {
+  for (imageEntry of result) {
+    getter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images', 'top'))
   }
 }).catch(function (error) {
   console.log(error)
