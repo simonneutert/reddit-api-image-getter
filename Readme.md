@@ -13,7 +13,7 @@ Check out the source code on GitHub and dig in a little for yourself.
 ~~~javascript
 // example
 const path = require('path')
-redditApiImageGetter = require('../reddit-api-image-getter')
+redditApiImageGetter = require('reddit-api-image-getter')
 
 getter = new redditApiImageGetter()
 
