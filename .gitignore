@@ -1,3 +1,6 @@
+.vscode
+.tool-versions
+
 # Mac OS
 .DS_Store
 

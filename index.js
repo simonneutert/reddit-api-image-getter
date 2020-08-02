@@ -1,2 +1,1 @@
-module.exports = require('./lib/RedditApiImageGetter')
-
+module.exports = require("./lib/RedditApiImageGetter");

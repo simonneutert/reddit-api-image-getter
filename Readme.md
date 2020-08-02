@@ -33,7 +33,8 @@ getter = new redditApiImageGetter()
 // 
 getter.getHotImagesOfSubReddit('ProgrammerHumor').then(function (result) {
   for (imageEntry of result) {
-    getter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images', 'hot'))
+    const targetDirectory = path.resolve(__dirname, 'images', 'hot');
+    getter.saveRedditImageEntryToDisk(imageEntry, targetDirectory);
   }
 }).catch(function (error) {
   console.log(error)
@@ -41,7 +42,10 @@ getter.getHotImagesOfSubReddit('ProgrammerHumor').then(function (result) {
 
 getter.getTopImagesOfSubReddit('ProgrammerHumor').then(function (result) {
   for (imageEntry of result) {
-    getter.saveRedditImageEntryToDisk(imageEntry, path.resolve(__dirname, 'images', 'top'))
+    // do begin with a starting '/' if you need to: 
+    // https://nodejs.org/api/path.html#path_path_resolve_paths
+    const targetDirectory = path.resolve(__dirname, 'images', 'top');
+    getter.saveRedditImageEntryToDisk(imageEntry, targetDirectory);
   }
 }).catch(function (error) {
   console.log(error)
