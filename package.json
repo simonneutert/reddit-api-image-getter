@@ -1,6 +1,6 @@
 {
   "name": "reddit-api-image-getter",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Gets images of a Subreddit and can optionally save them.",
   "main": "index.js",
   "license": "MIT",
