@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/simonneutert/reddit-api-image-getter",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^1.6.0"
   }
 }
