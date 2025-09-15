@@ -1,0 +1,39 @@
+# Test files
+test.js
+test-types.ts
+
+# Development files
+.git/
+.gitignore
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+
+# Example/demo files
+examples/
+demo/
+
+# Development dependencies
+node_modules/
+
+# Temporary files
+tmp/
+temp/

@@ -1,21 +1,64 @@
 # Reddit API Image Getter
 
+CLI tool and Node.js library to fetch and download images from Reddit subreddits. Zero dependencies, uses modern Node.js built-in modules.
+
 ## Install
 
-`npm i reddit-api-image-getter --save`
+**As a CLI tool (global):**
+```bash
+npm install -g reddit-api-image-getter
+```
 
-## Open Source
+**As a Node.js library:**
+```bash
+npm install reddit-api-image-getter --save
+```
 
-Check out the source code on GitHub and dig in a little for yourself.
+## CLI Usage
+
+After global installation, use the `reddit-images` command:
+
+```bash
+# Download hot images from a subreddit
+reddit-images ProgrammerHumor
+
+# Download top images instead of hot
+reddit-images typescript --top
+
+# Specify custom output directory
+reddit-images javascript --output ./my-images
+
+# Short flags
+reddit-images memes -t -o ~/Downloads/reddit-images
+
+# Show help
+reddit-images --help
+
+# Show version
+reddit-images --version
+```
+
+### CLI Options
+
+- `<subreddit>` - The subreddit name (without r/)
+- `-t, --top` - Get top images instead of hot (default: hot)
+- `-o, --output DIR` - Output directory (default: ./images)
+- `-h, --help` - Show help message
+- `-v, --version` - Show version number
+
+Images are automatically organized into subdirectories by subreddit name.
+
+## Library Usage (Node.js)
+
+Use as a Node.js library in your projects:
 
 ## Example
 
-~~~javascript
-// example
-const path = require('path')
-redditApiImageGetter = require('reddit-api-image-getter')
+```javascript
+const path = require('path');
+const RedditApiImageGetter = require('reddit-api-image-getter');
 
-getter = new redditApiImageGetter()
+const getter = new RedditApiImageGetter();
 
 // `getHotImagesOfSubReddit('subreddit')`
 // returns a Promise, that, when successful returns
@@ -48,14 +91,58 @@ getter.getTopImagesOfSubReddit('ProgrammerHumor').then(function (result) {
     getter.saveRedditImageEntryToDisk(imageEntry, targetDirectory);
   }
 }).catch(function (error) {
-  console.log(error)
-})
-~~~
+  console.log(error);
+});
+```
+
+### Modern async/await syntax:
+
+```javascript
+const RedditApiImageGetter = require('reddit-api-image-getter');
+const path = require('path');
+
+async function downloadImages() {
+  const getter = new RedditApiImageGetter();
+
+  try {
+    // Get hot images
+    const hotImages = await getter.getHotImagesOfSubReddit('ProgrammerHumor');
+    const targetDirectory = path.resolve(__dirname, 'images', 'hot');
+
+    for (const imageEntry of hotImages) {
+      if (imageEntry.imageUrl) {
+        getter.saveRedditImageEntryToDisk(imageEntry, targetDirectory);
+      }
+    }
+
+    console.log(`Downloaded ${hotImages.length} images`);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+downloadImages();
+```
+
+## Requirements
+
+- Node.js >=21.0.0 (for built-in `fetch` support)
+- Zero dependencies!
+
+## Features
+
+- ✅ **Zero dependencies** - Uses only Node.js built-in modules
+- ✅ **CLI tool** - Use from command line globally
+- ✅ **Node.js library** - Integrate into your projects
+- ✅ **TypeScript support** - Full type definitions included
+- ✅ **Modern async/await** - Clean, modern JavaScript
+- ✅ **Automatic file organization** - Images sorted by subreddit
+- ✅ **Duplicate prevention** - Won't overwrite existing files
 
 ## Example with Telegram Bot
 
 https://www.simon-neutert.de/2020/telegraf-bot-nodejs/
 
-## Inspiration
+## Contributing
 
-go crazy, send the pictures to your telegram via a bot (using a [bot](https://core.telegram.org/bots/samples#node-js)) and make your day a happy day :tada:
+Check out the source code on GitHub and feel free to contribute!
